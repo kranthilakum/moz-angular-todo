@@ -1,4 +1,4 @@
-import { Component, VERSION } from '@angular/core';
+import { Component, ViewChild, ElementRef, VERSION } from '@angular/core';
 import { TodoItem } from '../todo-item/todo-item';
 
 @Component({
@@ -7,9 +7,9 @@ import { TodoItem } from '../todo-item/todo-item';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = "To-DO application.";
+  @ViewChild('newItem', { static: true }) newItem: ElementRef;
+  title = "To-do application.";
   subtitle = `Angular ${VERSION.major} `;
-  itemDescription: string;
   allItems: TodoItem[] = [
     {"id": "todo-1", "description": "Buy 1Kg of tomatoes", "done": false},
     {"id": "todo-2", "description": "Pick up clothes from dry cleaners", "done": false},
@@ -27,6 +27,6 @@ export class AppComponent {
     this.reset()
   }
   reset() {
-    this.itemDescription = null;
+    this.newItem.nativeElement.value = null;
   }
 }

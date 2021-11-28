@@ -4,10 +4,11 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header.component';
+import { TodoItemComponent } from '../todo-item/todo-item.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HeaderComponent ],
+  declarations: [ AppComponent, HeaderComponent, TodoItemComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

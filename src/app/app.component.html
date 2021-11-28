@@ -4,13 +4,13 @@
     subtitleName="{{ subtitle }}"
   ></todo-header>
   <div>
-    <input type="text" placeholder="Enter an item" [(ngModel)]="itemDescription" />
+    <input id="add-item" type="text" placeholder="Enter an item" #newItem (keyup.enter)="addItem(newItem.value); newItem.value = ''" />
     <span class="space-x-1"></span>
-    <button class="rounded border border-solid border-gray-600 shadow-md p-2" type="button" (click)="addItem(itemDescription)">Add todo</button>
-    <span class="space-x-1"></span>
-    <button class="rounded border border-solid border-gray-600 shadow-md p-2" type="button" (click)="reset()">Reset</button>
+    <button id="reset-btn" class="rounded border border-solid border-gray-600 shadow-md p-2" type="button" (click)="reset()">Reset</button>
   </div>
-  <ul class="list-none">
-    <li *ngFor="let item of items">{{ item.description }}</li>
+  <ul id="todo-items" class="list-none">
+    <li id="todo-item" *ngFor="let item of items">
+      <todo-item [item]="item"></todo-item>
+    </li>
   </ul>
 </div>
