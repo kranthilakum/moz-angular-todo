@@ -1,0 +1,12 @@
+<todo-header
+  titleName="{{ title }}"
+  subtitleName="{{ subtitle }}"
+></todo-header>
+<div>
+  <input type="text" [(ngModel)]="itemDescription" />
+  <button type="button" (click)="addItem(itemDescription)">Add todo</button>
+  <button type="button" (click)="reset()">Reset</button>
+</div>
+<ul>
+  <li *ngFor="let item of items">{{ item.description }}</li>
+</ul>
