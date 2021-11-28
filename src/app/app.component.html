@@ -1,12 +1,16 @@
-<todo-header
-  titleName="{{ title }}"
-  subtitleName="{{ subtitle }}"
-></todo-header>
 <div>
-  <input type="text" [(ngModel)]="itemDescription" />
-  <button type="button" (click)="addItem(itemDescription)">Add todo</button>
-  <button type="button" (click)="reset()">Reset</button>
+  <todo-header
+    titleName="{{ title }}"
+    subtitleName="{{ subtitle }}"
+  ></todo-header>
+  <div>
+    <input type="text" placeholder="Enter an item" [(ngModel)]="itemDescription" />
+    <span class="space-x-1"></span>
+    <button class="rounded border border-solid border-gray-600 shadow-md p-2" type="button" (click)="addItem(itemDescription)">Add todo</button>
+    <span class="space-x-1"></span>
+    <button class="rounded border border-solid border-gray-600 shadow-md p-2" type="button" (click)="reset()">Reset</button>
+  </div>
+  <ul class="list-none">
+    <li *ngFor="let item of items">{{ item.description }}</li>
+  </ul>
 </div>
-<ul>
-  <li *ngFor="let item of items">{{ item.description }}</li>
-</ul>

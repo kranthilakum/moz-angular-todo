@@ -24,6 +24,7 @@ export class AppComponent {
       description: description,
       done: false
     })
+    this.reset()
   }
   reset() {
     this.itemDescription = null;
